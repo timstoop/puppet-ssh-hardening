@@ -1,4 +1,3 @@
-# encoding: utf-8
 
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppetlabs_spec_helper/rake_tasks'
@@ -13,7 +12,8 @@ if RUBY_VERSION > '1.9.2'
   require 'rubocop/rake_task'
 
   desc 'Run all linters: rubocop and puppet-lint'
-  task :run_all_linters => [:rubocop, :lint]
+  #  task :run_all_linters => [:rubocop, :lint]
+  task :run_all_linters => %i[rubocop lint]
 
   # Rubocop
   desc 'Run Rubocop lint checks'
@@ -21,11 +21,13 @@ if RUBY_VERSION > '1.9.2'
     RuboCop::RakeTask.new
   end
 
-  task :default => [:run_all_linters, :spec]
+  # task :default => [:run_all_linters, :spec]
+  task :default => %i[run_all_linters spec]
 
 else
   desc 'Run all linters: rubocop and puppet-lint'
   task :run_all_linters => [:lint]
 
-  task :default => [:lint, :spec]
+  # task :default => [:lint, :spec]
+  task :default => %i[lint spec]
 end

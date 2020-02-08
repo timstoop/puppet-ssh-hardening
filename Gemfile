@@ -1,4 +1,3 @@
-# encoding: utf-8
 
 source 'https://rubygems.org'
 
@@ -16,8 +15,8 @@ group :test do
   gem 'rspec', '~> 3.1.0', :require => false if RUBY_VERSION.start_with? '1.8'
   gem 'rspec-puppet'
   # avoid NoMethodError: private method `clone' called for #<RuboCop::Cop::CopStore:0x00000104e286c8>
-  gem 'puppetlabs_spec_helper', :git => 'https://github.com/ehaselwanter/puppetlabs_spec_helper'
   gem 'puppet-lint'
+  gem 'puppetlabs_spec_helper', :git => 'https://github.com/ehaselwanter/puppetlabs_spec_helper'
   gem 'rubocop', '~> 0.31' if RUBY_VERSION > '1.9.2'
 end
 
@@ -26,11 +25,11 @@ group :development do
 end
 
 group :integration do
-  gem 'test-kitchen'
-  gem 'kitchen-vagrant'
   gem 'kitchen-puppet'
-  gem 'librarian-puppet'
   gem 'kitchen-sharedtests', '~> 0.2.0'
+  gem 'kitchen-vagrant'
+  gem 'librarian-puppet'
+  gem 'test-kitchen'
 end
 
 group :openstack do
