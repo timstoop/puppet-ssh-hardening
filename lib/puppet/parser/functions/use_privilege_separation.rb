@@ -1,5 +1,3 @@
-# encoding: utf-8
-#
 # Copyright 2015, Dominik Richter
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +23,8 @@ Puppet::Parser::Functions.newfunction(:use_privilege_separation, :type => :rvalu
   ps = ps59
 
   # redhat/centos/oracle 6.x has ssh 5.3
-  if os == 'redhat' || os == 'centos' || os == 'oraclelinux'
+  #  if os == 'redhat' || os == 'centos' || os == 'oraclelinux'
+  if %w[redhat centos oraclelinux].include?(os)
     ps = ps53
 
   # debian 7.x and newer has ssh 5.9+

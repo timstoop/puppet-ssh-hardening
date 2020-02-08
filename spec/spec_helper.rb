@@ -1,5 +1,5 @@
-# encoding: utf-8
 #
+
 # Copyright 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -51,7 +51,7 @@ def expect_option(klass, key, val)
         if map[key] == wrap_expected(val)
           true
         else
-          fail "#{klass} option #{key.inspect} doesn't match (-- expected, ++ actual):\n"\
+          raise "#{klass} option #{key.inspect} doesn't match (-- expected, ++ actual):\n"\
             "-- #{val.inspect}\n"\
             "++ #{map[key].inspect}\n"
         end
